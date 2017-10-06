@@ -19,7 +19,7 @@ io.on('connection', function(socket){
     });
 	
 	socket.on('left', function(data) {
-    	  
+    	  console.log('left received');
 		  //send a message to ALL connected clients
 		  io.emit('left', userId);
     });
