@@ -17,6 +17,12 @@ io.on('connection', function(socket){
       id: socket.userId,
       msg: msg
     });
+	
+	socket.on('left', function(data) {
+    	  
+		  //send a message to ALL connected clients
+		  io.emit('left', userId);
+    });
   });
 });
 
