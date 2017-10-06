@@ -22,7 +22,13 @@
       $('#messages').append($('<li>').text("user#" + data.id + ": " + data.msg));
     });
 	
+	$('#leftbutton').click(function(){
+		socket.emit('left', "");
+	});
 	
+	socket.on('left', function(){
+		socket.emit('left', "");
+	});
   });
   
   function buttonClicked(){
@@ -31,7 +37,7 @@
 </script>
 
   <body>
-  <button onclick="buttonClicked()">Click me</button>
+  <button id="leftbutton" onclick="buttonClicked()">Click me</button>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
